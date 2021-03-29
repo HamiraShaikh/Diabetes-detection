@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body
+            {
+                background-color: #cffff0;
+                font-family: "Lucida Console", "Courier New", monospace;
+            }
+            fieldset
+            {
+                background-color : #ffffb2;
+                width : 400px;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: left;
+                border: 5px groove;
+                font-size: 20px;
+            }
+            legend
+            {
+                background-color : #d4ffdd;
+                color : green;
+                padding: 5px 10px;
+            }
+            input
+            {
+                margin-left : 100px;
+                margin-top : 15px;
+                margin-bottom : 15px;
+                width : 250px ;
+                height : 20px;
+                font-size: 18px;
+            }
+            .button
+            {
+                background-color:  	#64dbae ;
+                color: black;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 10px 150px;
+                cursor: pointer;
+            }
+            .p
+            {
+                text-align: center;
+                font-size: 25px;
+            }
+        </style>
+        <title>Diabetes Detection</title>
+
+    </head>
+    <body>
+    <h1 style="text-align: center">Diabetics Prediction </h1>
+    <p style="text-align: center">Please Note: If the probability is higher than 40%, You might have Diabetes</p>
+    <br>
+    <form method="post" action="{{url_for('predict')}}">
+        <fieldset>
+            <legend> Diabetes Prediction : </legend>
+            <br>
+            <label for="prg">Pregnancies</label>
+            <br>
+            <label>
+                <input type="text" name="prg" placeholder="Number of Pregnancies eg. 0">
+            </label>
+            <br>
+            <label for="gl">Glucose</label>
+            <br>
+            <label>
+                <input type="text" name="gl" placeholder="Glucose (mg/dL) eg. 80">
+            </label>
+            <br>
+            <label for="bp">Blood Pressure</label>
+            <br>
+            <label>
+                <input type="text" name="bp" placeholder="Blood Pressure (mmHg) eg. 80">
+            </label>
+            <br>
+            <label for="sk">Skin Thickness</label>
+            <br>
+            <label>
+                <input type="text" name="sk" placeholder="Skin Thickness (mm) eg. 20">
+            </label>
+            <br>
+            <label for="ins">Insulin</label>
+            <br>
+            <label>
+                <input type="text" name="ins" placeholder="Insulin Level (IU/mL) eg. 80">
+            </label>
+            <br>
+            <label for="BMI">BMI</label>
+            <br>
+            <label>
+                <input type="text" name="BMI" placeholder="Body Mass Index (kg/m²) eg. 23.1">
+            </label>
+            <br>
+            <label for="ped">Pedigree Function</label>
+            <br>
+            <label>
+                <input type="text" name="ped" placeholder="Diabetes Pedigree Function eg. 0.52">
+            </label>
+            <br>
+            <label for="age">Age</label>
+            <br>
+            <label>
+                <input type="text" name="age" placeholder="Age (years) eg. 34">
+            </label>
+            <br>
+            <button type="submit" class="button" style="align-self: center">Predict</button>
+
+        </fieldset>
+    </form>
+    <br>
+    <br>
+
+    <p class="p">
+        {{ pred }}
+    </p>
+
+
+    </body>
+</html>
